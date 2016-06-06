@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Gmail Notifier
+Name[en_CA]=Gmail Notifier
+Name[en_GB]=Gmail Notifier
+Name[en_US]=Gmail Notifier
+Comment=Gmail Inbox Monitor
+Comment[en_CA]=Gmail Inbox Monitor
+Comment[en_GB]=Gmail Inbox Monitor
+Comment[en_US]=Gmail Inbox Monitor
+Icon=gnome-gmail-notifier
+Exec=gnome-gmail-notifier
+Terminal=false
+StartupNotify=false
+Type=Application
+Categories=Network;GNOME;GTK;Email;

@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<!--*- mode: xml -*-->
+<interface>
+  <object class="GtkWindow" id="GgnEditWindow">
+    <property name="title" translatable="yes">Edit Account</property>
+    <property name="resizable">False</property>
+    <property name="window_position">GTK_WIN_POS_CENTER_ON_PARENT</property>
+    <property name="default_width">460</property>
+    <property name="icon">ggn-normal-lg.svg</property>
+    <signal handler="ggn_edit_window_deleted" name="delete_event"/>
+    <signal handler="ggn_edit_window_key_pressed" name="key_press_event"/>
+    <child>
+      <object class="GtkVBox" id="vboxMain">
+        <property name="visible">True</property>
+        <property name="border_width">4</property>
+        <child>
+          <object class="GtkFrame" id="fraDesc">
+            <property name="visible">True</property>
+            <property name="border_width">2</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">GTK_SHADOW_NONE</property>
+            <child>
+              <object class="GtkAlignment" id="alnDesc">
+                <property name="visible">True</property>
+                <property name="border_width">4</property>
+                <property name="left_padding">12</property>
+                <child>
+                  <object class="GtkHBox" id="hboxDesc">
+                    <property name="visible">True</property>
+                    <property name="spacing">4</property>
+                    <child>
+                      <object class="GtkLabel" id="lblDesc">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Name:</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="txtName">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="invisible_char">&#x2022;</property>
+                      </object>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="lblFraDesc">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">&lt;b&gt;Description&lt;/b&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkFrame" id="fraCreds">
+            <property name="visible">True</property>
+            <property name="border_width">2</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">GTK_SHADOW_NONE</property>
+            <child>
+              <object class="GtkAlignment" id="alnFraCreds">
+                <property name="visible">True</property>
+                <property name="border_width">4</property>
+                <property name="left_padding">12</property>
+                <child>
+                  <object class="GtkTable" id="tblCreds">
+                    <property name="visible">True</property>
+                    <property name="border_width">4</property>
+                    <property name="n_rows">3</property>
+                    <property name="n_columns">2</property>
+                    <property name="column_spacing">4</property>
+                    <property name="row_spacing">4</property>
+                    <child>
+                      <object class="GtkEntry" id="txtPass">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="visibility">False</property>
+                        <property name="invisible_char">&#x2022;</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">2</property>
+                        <property name="bottom_attach">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="txtDomain">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">1</property>
+                        <property name="bottom_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="txtUser">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="lblPass">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Password:</property>
+                      </object>
+                      <packing>
+                        <property name="top_attach">2</property>
+                        <property name="bottom_attach">3</property>
+                        <property name="x_options"/>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="lblDomain">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Domain:</property>
+                      </object>
+                      <packing>
+                        <property name="top_attach">1</property>
+                        <property name="bottom_attach">2</property>
+                        <property name="x_options"/>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="lblUser">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Username:</property>
+                      </object>
+                      <packing>
+                        <property name="x_options"/>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="lblFraCreds">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">&lt;b&gt;Gmail Login&lt;/b&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="fraSend">
+            <property name="visible">True</property>
+            <property name="border_width">2</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">GTK_SHADOW_NONE</property>
+            <child>
+              <object class="GtkAlignment" id="alnFraSend">
+                <property name="visible">True</property>
+                <property name="border_width">4</property>
+                <property name="left_padding">12</property>
+                <child>
+                  <object class="GtkCheckButton" id="chkDefault">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="label" translatable="yes">Use this account to compose messages</property>
+                    <property name="draw_indicator">True</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="lblFraSend">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">&lt;b&gt;Composition&lt;/b&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="hboxButtons">
+            <property name="visible">True</property>
+            <property name="border_width">4</property>
+            <property name="spacing">4</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnCancel">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="label">gtk-cancel</property>
+                <property name="use_stock">True</property>
+                <signal handler="ggn_edit_window_cancelled" name="clicked"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnOK">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="label">gtk-ok</property>
+                <property name="use_stock">True</property>
+                <signal handler="ggn_edit_window_confirmed" name="clicked"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="pack_type">GTK_PACK_END</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

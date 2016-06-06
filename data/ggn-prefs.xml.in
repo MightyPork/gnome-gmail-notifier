@@ -1,0 +1,344 @@
+<?xml version="1.0"?>
+<!--*- mode: xml -*-->
+<interface>
+  <object class="GtkAdjustment" id="adjustment1">
+    <property name="upper">60</property>
+    <property name="lower">1</property>
+    <property name="page_increment">0</property>
+    <property name="step_increment">1</property>
+    <property name="page_size">0</property>
+    <property name="value">10</property>
+  </object>
+  <object class="GtkWindow" id="GgnPrefsWindow">
+    <property name="border_width">4</property>
+    <property name="title" translatable="yes">Gmail Notifier Preferences</property>
+    <property name="resizable">False</property>
+    <property name="window_position">GTK_WIN_POS_CENTER</property>
+    <property name="icon">ggn-normal-lg.svg</property>
+    <signal handler="ggn_prefs_window_deleted" name="delete_event"/>
+    <signal handler="ggn_prefs_window_key_pressed" name="key_press_event"/>
+    <child>
+      <object class="GtkVBox" id="vboxMain">
+        <property name="visible">True</property>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkFrame" id="fraAccounts">
+            <property name="visible">True</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">GTK_SHADOW_NONE</property>
+            <child>
+              <object class="GtkAlignment" id="alnFraAccounts">
+                <property name="visible">True</property>
+                <property name="left_padding">12</property>
+                <child>
+                  <object class="GtkVBox" id="vboxAccounts">
+                    <property name="visible">True</property>
+                    <property name="border_width">4</property>
+                    <child>
+                      <object class="GtkHBox" id="hboxAccounts">
+                        <property name="visible">True</property>
+                        <property name="spacing">2</property>
+                        <child>
+                          <object class="GtkScrolledWindow" id="scrWinAccounts">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="hscrollbar_policy">GTK_POLICY_NEVER</property>
+                            <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+                            <property name="shadow_type">GTK_SHADOW_IN</property>
+                            <child>
+                              <object class="GtkTreeView" id="treeAccounts">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="headers_visible">False</property>
+                                <property name="enable_search">False</property>
+                                <signal handler="ggn_prefs_window_account_activated" name="row_activated"/>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkVBox" id="vboxAccountButtons">
+                            <property name="visible">True</property>
+                            <property name="border_width">2</property>
+                            <property name="spacing">2</property>
+                            <child>
+                              <object class="GtkButton" id="btnAccountAdd">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="label">gtk-add</property>
+                                <property name="use_stock">True</property>
+                                <signal handler="ggn_prefs_window_account_add" name="clicked"/>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="btnAccountDel">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="label">gtk-remove</property>
+                                <property name="use_stock">True</property>
+                                <signal handler="ggn_prefs_window_account_del" name="clicked"/>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="btnAccountEdit">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="label">gtk-edit</property>
+                                <property name="use_stock">True</property>
+                                <signal handler="ggn_prefs_window_account_edit" name="clicked"/>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="position">2</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="lblFraAccounts">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">&lt;b&gt;Gmail Accounts&lt;/b&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkFrame" id="fraUpdates">
+            <property name="visible">True</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">GTK_SHADOW_NONE</property>
+            <child>
+              <object class="GtkAlignment" id="alnFraUpdates">
+                <property name="visible">True</property>
+                <property name="left_padding">12</property>
+                <child>
+                  <object class="GtkVBox" id="vboxUpdates">
+                    <property name="visible">True</property>
+                    <property name="border_width">4</property>
+                    <child>
+                      <object class="GtkLabel" id="lblUpdates">
+                        <property name="visible">True</property>
+                        <property name="xalign">0</property>
+                        <property name="label" translatable="yes">Check with Gmail for messages every:</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkHScale" id="slideUpdates">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="adjustment">adjustment1</property>
+                        <property name="digits">0</property>
+                        <property name="value_pos">GTK_POS_BOTTOM</property>
+                        <signal handler="ggn_prefs_window_rate_changed" name="value_changed"/>
+                        <signal handler="ggn_prefs_window_rate_format" name="format_value"/>
+                      </object>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="lblFraUpdates">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">&lt;b&gt;Inbox Updates&lt;/b&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="fraNotes">
+            <property name="visible">True</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">GTK_SHADOW_NONE</property>
+            <child>
+              <object class="GtkAlignment" id="alnFraNotes">
+                <property name="visible">True</property>
+                <property name="left_padding">12</property>
+                <child>
+                  <object class="GtkVBox" id="vboxNotes">
+                    <property name="visible">True</property>
+                    <property name="border_width">4</property>
+                    <child>
+                      <object class="GtkCheckButton" id="chkNotesMsgs">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="label" translatable="yes">Display notifications for new messsages</property>
+                        <property name="use_underline">True</property>
+                        <property name="active">True</property>
+                        <property name="draw_indicator">True</property>
+                        <signal handler="ggn_prefs_window_notify_msgs_toggled" name="toggled"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton" id="chkNotesErrs">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="label" translatable="yes">Display notifications for inbox errors</property>
+                        <property name="use_underline">True</property>
+                        <property name="draw_indicator">True</property>
+                        <signal handler="ggn_prefs_window_notify_errs_toggled" name="toggled"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="lblFraNotes">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">&lt;b&gt;Visual Notifications&lt;/b&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="fraSounds">
+            <property name="visible">True</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">GTK_SHADOW_NONE</property>
+            <child>
+              <object class="GtkAlignment" id="alnFraSounds">
+                <property name="visible">True</property>
+                <property name="left_padding">12</property>
+                <child>
+                  <object class="GtkVBox" id="vboxSounds">
+                    <property name="visible">True</property>
+                    <property name="border_width">4</property>
+                    <child>
+                      <object class="GtkCheckButton" id="chkSounds">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="label" translatable="yes">Play a sound upon receipt of new mail</property>
+                        <property name="use_underline">True</property>
+                        <property name="active">True</property>
+                        <property name="draw_indicator">True</property>
+                        <signal handler="ggn_prefs_window_sound_enab_toggled" name="toggled"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkHBox" id="hboxSounds">
+                        <property name="visible">True</property>
+                        <property name="spacing">4</property>
+                        <child>
+                          <object class="GtkFileChooserButton" id="btnSoundsChoose">
+                            <property name="visible">True</property>
+                            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                            <property name="title" translatable="yes">Select A Sound File</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="btnSoundsPlay">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="label">gtk-media-play</property>
+                            <property name="use_stock">True</property>
+                            <signal handler="ggn_prefs_window_test_sound" name="clicked"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="lblFraSounds">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">&lt;b&gt;Audio Notifications&lt;/b&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="hboxClose">
+            <property name="visible">True</property>
+            <property name="border_width">2</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnClose">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="label">gtk-close</property>
+                <property name="use_stock">True</property>
+                <signal handler="ggn_prefs_window_closed" name="clicked"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="pack_type">GTK_PACK_END</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

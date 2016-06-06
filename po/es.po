@@ -1,0 +1,218 @@
+# Translation of gnome-gmail-notifier.pot to Español.
+# Traducción de gnome-gmail-notifier.po a Español.
+#
+# Copyright (C) 2010 Bradley A. Worley.
+# This file is distributed under the same
+# license as the gnome-gmail-notifier package.
+#
+# Bradley A. Worley <geekysuavo@gmail.com>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-gmail-notifier-0.10.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-09 10:14-0500\n"
+"PO-Revision-Date: 2010-04-09 10:15-0500\n"
+"Last-Translator: Bradley A. Worley <geekysuavo@gmail.com>\n"
+"Language-Team: Español <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/ggn-about.xml.in.h:1
+msgid "A Gmail Inbox Monitor for the GNOME2 desktop"
+msgstr "Un Monitor del Gmail Bandeja de Entrada para GNOME2"
+
+#: ../data/ggn-about.xml.in.h:2
+msgid "Copyright &#xA9; 2010 Bradley Worley"
+msgstr "Copyright &#xA9; 2010 Bradley Worley"
+
+#: ../data/ggn-about.xml.in.h:3
+msgid "translator-credits"
+msgstr "Bradley A. Worley <geekysuavo@gmail.com>, 2010"
+
+#: ../data/ggn-edit.xml.in.h:1
+msgid "<b>Composition</b>"
+msgstr "<b>Composición</b>"
+
+#: ../data/ggn-edit.xml.in.h:2
+msgid "<b>Description</b>"
+msgstr "<b>Descripción</b>"
+
+#: ../data/ggn-edit.xml.in.h:3
+msgid "<b>Gmail Login</b>"
+msgstr "<b>Gmail Login</b>"
+
+#: ../data/ggn-edit.xml.in.h:4
+msgid "Domain:"
+msgstr "Dominio:"
+
+#: ../data/ggn-edit.xml.in.h:5
+msgid "Edit Account"
+msgstr "Editar Cuenta"
+
+#: ../data/ggn-edit.xml.in.h:6
+msgid "Name:"
+msgstr "Nombre:"
+
+#: ../data/ggn-edit.xml.in.h:7
+msgid "Password:"
+msgstr "Contraseña:"
+
+#: ../data/ggn-edit.xml.in.h:8
+msgid "Use this account to compose messages"
+msgstr "Usar esta cuenta para componer correos"
+
+#: ../data/ggn-edit.xml.in.h:9
+msgid "Username:"
+msgstr "Usuario:"
+
+#: ../data/ggn-menu.xml.in.h:1
+msgid "_Check Mail"
+msgstr "_Comprobar el Correo"
+
+#: ../data/ggn-menu.xml.in.h:2
+msgid "_Quit"
+msgstr "_Dejar"
+
+#: ../data/ggn-prefs.xml.in.h:1
+msgid "<b>Audio Notifications</b>"
+msgstr "<b>Notificaciones de Audio</b>"
+
+#: ../data/ggn-prefs.xml.in.h:2
+msgid "<b>Gmail Accounts</b>"
+msgstr "<b>Cuentas de Gmail</b>"
+
+#: ../data/ggn-prefs.xml.in.h:3
+msgid "<b>Inbox Updates</b>"
+msgstr "<b>Actualizaciones</b>"
+
+#: ../data/ggn-prefs.xml.in.h:4
+msgid "<b>Visual Notifications</b>"
+msgstr "<b>Notificacions Visuales</b>"
+
+#: ../data/ggn-prefs.xml.in.h:5
+msgid "Check with Gmail for messages every:"
+msgstr "Comprobar para correos nuevos cada:"
+
+#: ../data/ggn-prefs.xml.in.h:6
+msgid "Display notifications for inbox errors"
+msgstr "Mostrar notificaciones para errores"
+
+#: ../data/ggn-prefs.xml.in.h:7
+msgid "Display notifications for new messsages"
+msgstr "Mostrar notificaciones para correos nuevos"
+
+#: ../data/ggn-prefs.xml.in.h:8
+msgid "Gmail Notifier Preferences"
+msgstr "Preferencias del Gmail Notifier"
+
+#: ../data/ggn-prefs.xml.in.h:9
+msgid "Play a sound upon receipt of new mail"
+msgstr "Reproducir un sonido al recibir correos nuevos"
+
+#: ../data/ggn-prefs.xml.in.h:10
+msgid "Select A Sound File"
+msgstr "Elegir un Archivo de Sonido"
+
+#.
+#. * define the constant-valued strings to use for notification.
+#.
+#: ../src/ggn-manager.c:51
+msgid "Checking mail..."
+msgstr "Comprobando para correos..."
+
+#: ../src/ggn-manager.c:52
+msgid "No accounts configured"
+msgstr "Ninguna cuenta configurada"
+
+#: ../src/ggn-manager.c:53 ../src/ggn-manager.c:56
+msgid "Unable to check mail"
+msgstr "No puede comprobar correo"
+
+#: ../src/ggn-manager.c:54 ../src/ggn-manager.c:58
+msgid "No new messages"
+msgstr "No hay correos nuevos"
+
+#: ../src/ggn-manager.c:55
+msgid "No accounts are configured"
+msgstr "Ningunas cuentas están configuradas"
+
+#: ../src/ggn-manager.c:57
+msgid "You have new mail"
+msgstr "Tiene correos nuevos"
+
+#: ../src/ggn-manager.c:59
+msgid "Please add one or more accounts using the Preferences window."
+msgstr ""
+"Por favor, añada una o más cuentas utilizando la Ventana de Preferencias"
+
+#. add information to the tooltip.
+#: ../src/ggn-manager.c:197
+#, c-format
+msgid "%d unread for %s"
+msgstr "%d no leído para %s"
+
+#. use the advanced title gstring.
+#: ../src/ggn-manager.c:238
+#, c-format
+msgid "New mail from %s"
+msgstr "Correo nuevo de %s"
+
+#. add the first part of the summary gstring.
+#: ../src/ggn-manager.c:256
+#, c-format
+msgid "There are <b>%d</b> new messages for"
+msgstr "Hay <b>%d</b> correos nuevos para"
+
+#. last.
+#: ../src/ggn-manager.c:281 ../src/ggn-manager.c:321 ../src/ggn-manager.c:428
+msgid "and"
+msgstr "y"
+
+#. first.
+#: ../src/ggn-manager.c:316
+msgid "from"
+msgstr "de"
+
+#. allocate a new summary gstring.
+#: ../src/ggn-manager.c:408
+msgid "Errors occurred while checking mail for"
+msgstr "Se han producido errores durante la comprobación de correo para"
+
+#: ../src/ggn-manager.c:682
+msgid "unread"
+msgstr "no leído"
+
+#. create the label.
+#: ../src/ggn-manager.c:744
+msgid "Compose New Message"
+msgstr "Componer Una Mensaje"
+
+#. set the default account values.
+#: ../src/ggn-prefs-window.c:372
+msgid "New Account"
+msgstr "Nueva Cuenta"
+
+#. singular value.
+#: ../src/ggn-prefs-window.c:538
+msgid "minute"
+msgstr "minuto"
+
+#. plural value 2-9.
+#. plural value 10-60.
+#: ../src/ggn-prefs-window.c:542 ../src/ggn-prefs-window.c:546
+msgid "minutes"
+msgstr "minutos"
+
+#: ../src/ggn-prefs-window.c:850
+msgid "Enabled"
+msgstr "Activado"
+
+#: ../src/ggn-prefs-window.c:856
+msgid "Name"
+msgstr "Nombre"
+
+#: ../src/ggn-prefs-window.c:882
+msgid "Wave audio files"
+msgstr "Archivos de audio WAV"

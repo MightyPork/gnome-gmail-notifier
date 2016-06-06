@@ -1,0 +1,8 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+[type: gettext/glade]data/ggn-about.xml.in
+[type: gettext/glade]data/ggn-edit.xml.in
+[type: gettext/glade]data/ggn-menu.xml.in
+[type: gettext/glade]data/ggn-prefs.xml.in
+src/ggn-manager.c
+src/ggn-prefs-window.c

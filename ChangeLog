@@ -1,0 +1,822 @@
+Mon Apr 05 11:16 2010  Bradley Worley  (geekysuavo@gmail.com)
+
+    * GgnPrefsWindow: implemented all functionality and rewrote
+      libglade code into newer GtkBuilder code.
+    * GgnManager: implemented complete functionality, including
+      advanced new mail notifications, an extended left-click
+      popup menu under conditions of >1 enabled account, and
+      mailto commandline support.
+    * configure.ac: updated version to 0.10.1 for next release.
+
+Wed Dec 23 12:19 2009  Bradley Worley  (geekysuavo@gmail.com)
+
+    * GgnAccount: created ggn-account.[ch] and ggn-account-priv.h
+      for the newly designed account object. accounts are now the
+      most important object in the notifier, directly managing
+      underlying preferences when their data are changed and keeping
+      detailed track of their entries arrays.
+    * ggn-account.c: entries are now managed by their states in
+      the inbox: NEW, UNREAD, or READ.
+    * GgnAccountList: created ggn-account-list.[ch] and the
+      ggn-account-list-priv.h for the account list object and
+      implemented all functionality. the account list is now
+      generated from the GgnPrefs object on startup, meaning
+      accounts are built behind the scenes without GgnManager
+      intervention.
+    * GgnAudio: created ggn-audio.[ch] and ggn-audio-priv.h
+      for audio playback functionality and implemented all
+      required code.
+    * GgnEntry: created ggn-entry.[ch] and ggn-entry-priv.h
+      for keeping track of account entries and their data,
+      implemented fully.
+    * GgnManager: created ggn-manager.[ch] and ggn-manager-priv.h
+      and added a few bits of functionality. the manager is to be
+      trimmed of all excess fat: it is to hold only the backbone
+      application code and notification logic.
+    * GgnPrefsWindow: created ggn-prefs-window.[ch] and the
+      associated ggn-prefs-window-priv.h for the preferences
+      window. no functionality as of yet.
+
+Mon Jun 22 21:21 2009  Bradley Worley  (geekysuavo@gmail.com)
+
+    * GgnPrefs: created ggn-prefs.[ch] and ggn-prefs-priv.h
+      for the newly designed and cleaned up preferences access
+      object. a quick test says it works as expected.
+    * GgnIcon: created ggn-icon.[ch] and ggn-icon-priv.h for
+      the status icon and notification bubble functionality.
+      a cursory examination and testing shows it to work.
+
+Fri Jun 19 16:13 2009  Bradley Worley  (geekysuavo@gmail.com)
+
+    * GgnKeyring: created ggn-keyring.[ch] and implemented the
+      functionality required for keyring access. The topology
+      of the functions involved did not warrant the creation
+      of a distinct GObject subclass, but was important enough
+      to be rewritten and set apart in the codebase.
+
+Sun Jun 07 21:28 2009  Bradley Worley  (geekysuavo@gmail.com)
+
+    * GgnXML: created ggn-xml.[ch] and ggn-xml-priv.h for the
+      newly bugfixed, rewritten and renamed xml parser object.
+    * GgnAboutDialog: create ggn-about-dialog.[ch] and
+      ggn-about-dialog-priv.h for the newly bugfixed and
+      rewritten about dialog object.
+
+Sat Jun 06 18:48 2009  Bradley Worley  (geekysuavo@gmail.com)
+
+    * configure.ac: fixed LIBS and CFLAGS defines to shrink
+      the size of the compilation output by eliminating
+      -library and -I/nclude clutter.
+    * Makefile.am: same as for configure.ac.
+
+Sun May 31 14:36 2009  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-atom-feed.c: added extra checks to ensure that a
+      minimum number of trys are made for each atom feed
+      HTTP GET. (some HTTP 401's do not trigger the soup
+      "authenticate" signal... ???)
+    * ggn-preferences.c: optimized the account modification
+      routine to only change settings fields which have been
+      modified.
+    * ggn-config.c: fixed account edit window to carry over
+      enabled status of account during an edit process.
+
+Sat May 30 15:21 2009  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-preferences.c: complete and absolute overhaul of
+      much of the API involved with preferences get/set, most
+      of which is related to accounts management.
+    * ggn-manager.c: reworking of logic relating to the
+      aforementioned overhaul.
+    * ggn-config.c: reworking of logic relating to the
+      aforementioned overhaul.
+    * ggn-atom-feed.c: fixed infinite looping situation
+      with an incorrect password in the SoupSessionSync
+      "authenticate" signal.
+
+Fri May 29 14:22 2009  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-atom-feed.c: small changes to coincide with api
+      changes in other parts of the source, namely the change
+      from *_username() to *_user().
+    * ggn-config.c: fixes to accomodate api changes in the
+      GgnPreferences source code.
+    * ggn-manager.c: fixes to accomodate api changes in the
+      GgnPreferences source code.
+    * ggn-preferences.c: complete removal of the xml config
+      file.
+    * ggn-util.c: ggn_client_execute() exhibits safer gconf
+      client reference count behavior now by unref()-ing the
+      client it uses to get the browser/emailer commands.
+    * ggn-edit.glade: added a domain name text entry for
+      hosted gmail account users to enter their domain into.
+
+Thu May 28 19:41 2009  Bradley Worley  (geekysuavo@gmail.com)
+
+    * Makefile.am: fixed fixme target to use uppercase too.
+    * ggn-util.c: added the ggn_launch_gmail function to
+      facilitate launching gmail when necessary.
+
+Wed May 20 20:25 2009  Bradley Worley  (geekysuavo@gmail.com)
+
+    * configure.ac: removed libgnomeui dependency from the
+      configure script list of dependencies.
+    * configure.ac: removed libgnome dependency from the
+      configure script list of dependencies.
+    * Makefile.am: removed gnome CFLAGS and LIBS lines,
+      replaced with gconf and gtk2 lines.
+    * main.h: removed libgnome include statements.
+
+Wed May 20 14:20 2009  Bradley Worley  (geekysuavo@gmail.com)
+
+    * configure.ac: changed libsoup version requirement to
+      version 2.4.
+    * ggn-atom-feed.c: cosmetic changes and integrated changes
+      from clemsbox (thanks!) into the libsoup feed download
+      functions.
+
+Mon Apr 20 17:19 2009  Nicholas Moore  (shiny.nickel@gmail.com)
+
+    * ggn-preferences.c: added methods to obtain proxy username
+      and password and storage for them both
+    * ggn-util.h: added proxy username and password locations
+      for gconf
+    * ggn-manager.c: added calls methods to fetch the proxy
+      username and password
+    * ggn-atom-feed.c: modified the connection callback to send
+      proxy authentication if requested and added methods to
+      get the username and password
+    * autogen.sh: removed call to gettext, as it was causing
+      compilation problems
+
+Sun Jan 20 09:29 2008  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-config.c: minor aesthetic source code modifications.
+    * ggn-preferences.c: minor aesthetic source code modifications.
+
+Thu Jan 10 18:09 2008  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-prefs.glade.in: changed to use a GtkFileChooserButton.
+    * ggn-config.c: modified codebase to work with the above
+      modified glade layout.
+
+Wed Jan 09 18:32 2008  Bradley Worley  (geekysuavo@gmail.com)
+
+    * autogen.sh: fixed the url's for finding the source
+      packages for automake, autoconf, etc... thanks to
+      eric.n.brown for this fix.
+    * configure.ac: added checks for required gstreamer
+      plugins, so as not to upset the notifier while
+      running. :-)
+    * ggn-config.c: implemented a simple "escape closes me"
+      callback to make the preferences window seem a bit more
+      like a dialog.
+
+Sat Dec 22 02:04 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * configure.ac: removed all requirements of gnutls/gcrypt
+      and added a check for gnome-keyring >= 0.4.2.
+    * ggn-atom-feed.h: added some definitions for keyring
+      password lookups.
+    * ggn-preferences.c: removed all writing of passwords to
+      the xml preferences file, and added routines for the
+      use of gnome-keyring to load/store passwords.
+
+Fri Dec 21 01:06 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-manager.c: changed 'react' behavior to only make
+      notifications occur when the user gains messages, not
+      loses/reads them.
+
+Fri Sep 28 09:29 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-presence.c: changed invocation of g_thread_create
+      to make a non-joinable thread.
+    * ggn-atom-feed.c: changed invocation of g_thread_create
+      to make a non-joinable thread.
+
+Wed Sep 26 16:35 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-manager.c: finalized the initial startup behavior,
+      which now includes notifications that no accounts have
+      been configured for use.
+    * ggn-welcome.html: tweaked the instructions to reflect
+      the first-time-run changes in the notifier.
+    * ggn-presence.[ch]: added support for a warning style
+      to display messages between errors and infos.
+    * ggn-warn.svg: added this file to the data/ directory
+      to be used as a warning pixmap.
+    * ggn-manager.c: made general improvements to the logic
+      of the mail-check functions, as well as changed the
+      "no accounts configured" pixmap to a warning logo.
+
+Mon Sep 24 15:20 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * gnome-gmail-notifier.desktop.in: removed the OnlyShowIn
+      line in the file.
+
+Sun Sep 23 17:38 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-config.c: fixed config window to open the account
+      editor window when the user selects 'Add' to make a new
+      account.
+
+Sat Sep 22 09:56 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-manager.c: added preliminary support for multiple
+      account message summaries in the icon tooltip. recommend
+      testing before labeling it as done, though.
+
+Thu Sep 20 19:01 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * gnome-gmail-notifier.desktop.in: fixed this file to use
+      an svg file installed to the ${datadir}/pixmaps folder
+      to ensure that the menu always has an icon no matter
+      where it was installed to.
+
+Thu Sep 20 10:57 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-preferences.h: commented out the account section in
+      the GGN_PREFERENCES_WFORMAT string, effectively giving
+      first-run users a configuration with zero accounts.
+
+Sun Sep 02 20:31 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * main.h: added required gnutls.h and pthread.h includes
+      for the extra legwork needed to initialize threading in
+      gcrypt/gnutls.
+    * main.c: set up proper threading initialization using
+      pthreads for gcrypt/gnutls. needs testing, but so far
+      it's not crashing with multiple accounts like before.
+
+Fri Aug 31 20:10 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-manager.c: fixed lack of regular inbox checking on
+      first-run situations, with room for later improvement.
+    * ggn-crypto.c: abandoned hex method of encoding passwords
+      for the simpler and more robust g_base64 functions from
+      glib-2.0.
+
+Wed Aug 15 19:09 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-crypto.c: implemented full encryption and decryption
+      functionality, including safe hex encrypted strings to
+      ensure data persistance.
+    * ggn-crypto.c: made massive changes and fixes to the
+      encryption and decryption functions to make them work.
+    * ggn-preferences.c: added support for simplistic load
+      and save of password from xml file, and all seems to
+      work ok.
+    * ggn-preferences.c: added code to seamlessly upgrade
+      users from insecure plaintext passwords to safer
+      encrypted passwords.
+    * ggn-util.c: added a fix to ggn_strtob to check if
+      the value string is NULL.
+    * data/pkg/*.in: added gnutls as a requirement to using
+      the notifier in binary form.
+
+Tue Aug 14 20:15 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * configure.ac: added checks for gnutls, which "provides"
+      the gcrypt and gpg-error libraries we need for crypto.
+    * ggn-crypto.[ch]: created base gobject functionality and
+      began writing the building blocks. more to come.
+
+Tue Aug 14 12:27 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * configure.ac: added code to compute sane initialization
+      vectors for the GgnCrypto gobject, which is soon to be
+      written.
+
+Mon Jul 09 11:11 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-prefs.glade.in: completely removed all widgets that
+      were used to set the proxy address.
+    * ggn-config.c: completely removed all functionality that
+      pertained to setting the proxy address.
+    * ggn-preferences.[ch]: removed all functionality that set
+      a different proxy address from the GNOME settings.
+    * ggn-config.c: removed all traces of the ubiquitous
+      ggn_config_get_widget function, which should've been the
+      glade_xml_get_widget function.
+    * gnome-gmail-notifier: version officially set to 0.9.1.
+
+Thu Jul 05 16:23 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-preferences.c: fixed usage of the proxy settings.
+
+Wed Jul 04 17:32 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * main.c: fixed compilation error with the locale dir
+      when NLS is enabled.
+    * ggn-presence.c: changed g_usleep invocation into a
+      gtk_main_iteration_do (FALSE) invocation, which seems
+      to fix the problem with startup notifications. (Cross
+      your fingers and test, test, test!!!)
+    * ggn-atom-feed.c: added an error flag to the GgnAtomFeed
+      object, which will allow the GgnManager to track which
+      feeds return HTTP errors (like unauthorized).
+    * ggn-manager.c: added error count to the parameters sent
+      to the ggn_manager_handle_inbox_change function, which
+      can do with them what it wishes.
+    * ggn-manager.c: added a reaction to the inbox errors
+      that can occur during the check process, and perfected
+      the reaction decision logic to a one-liner.
+    * gnome-gmail-notifier: removed every trace of ggn_free_str
+      from the program, as it was useless.
+    * ggn-preferences.c: modified the behavior of the proxy
+      property, so that the preferences object always pulled
+      the proxy uri from the gnome settings via gconf.
+
+Tue Jul 03 12:03 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-manager.c: forced gdk to flush the command buffer
+      when inside the feed checking thread.
+    * configure.ac: added code to generate the data/*.in
+      files' counterparts using the autotools, instead of
+      using my stupid custom script.
+    * data/Makefile.am: removed invocation of my stupid
+      custom script from the rules for input files.
+    * data/ggn-about.glade.in: fixed the version string to
+      automatically update using the autotools scripts.
+
+Sun Jul 01 14:26 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * gnome-gmail-notifier.pot: created the base PO template
+      file for translators to work with.
+    * ggn-manager.c: fixed the manager to ensure that the status
+      icon has been shown before proceeding to notify the user
+      of new mail and such.
+    * ggn-about.glade.in: marked the GPL license as non-trans-
+      latable.
+
+Wed Jun 27 14:23 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-config.c: fixed issue with ggn_preferences_get_*
+      functions that returned NULL strings sometimes.
+    * ggn-config.c: fixed segfault that occured when the
+      user clicked "Edit" and no account was selected.
+    * ggn-config.c: buttons that now require an account
+      to be selected will be "greyed out" when no account
+      is selected.
+    * ggn-manager.c: rewrote ggn_manager_update_array and
+      hooked it into various other functions to ensure that
+      the GUI would never lock, and that the accounts list
+      always stayed synced with the feeds array.
+    * ggn-atom-feed.c: fixed warning from libsoup about
+      soup_uri_free trying to free a NULL SoupUri.
+    * ggn-xml-parser.c: fixed the parser to recover on the
+      "extra content at the end of document" error, which
+      really shouldn't keep the parser from finishing.
+
+Tue Jun 26 09:57 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-manager.c: fixed plural/singular message grammar
+      in the notification summary.
+    * gnome-gmail-notifier: removed scripts directory and
+      ported all functions of those scripts to Makefile.am
+      and data/pkg/builder.
+    * gnome-gmail-notifier: added intltool and gettext
+      support, and marked all translatable strings in all
+      source files.
+
+Mon Jun 25 23:00 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-manager.c: added gdk_threads_enter/leave support.
+    * ggn-presence.c: added gdk_threads_enter/leave support.
+    * main.c: added gdk_threads_init support, all of this
+      gdk_threads stuff fixed the issues with the hangups
+      from Xlib about invalid async responses.
+    * ggn-manager.c: implemented a correct message feedback
+      loop system, which does all of the notifications that
+      the previous version did, just with a little more zing.
+
+Mon Jun 25 15:15 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * data: created welcome.html and associated files, which
+      help new users setup their notifiers on the first run.
+    * ggn-presence.c: added support for the CHECKING style,
+      which can be used during mail check cycles.
+
+Sun Jun 24 12:59 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-about.glade.in: fixed the copyright symbol in the
+      glade xml input file.
+    * ggn-manager.c: fixed up ggn_manager_update_array and
+      set the basic checking loop in place, but no actual
+      feed refresh happens yet.
+    * ggn-xml-parser.c: basically overhauled the load_string
+      function on the grounds that it was crashing pretty
+      regularly, and we came out with a shiny new xml
+      parsing function.
+
+Sat Jun 23 21:54 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-manager.c: implemented all functionality required
+      for normal operation, except for atom feed inbox
+      refreshing. (the first try failed pretty horribly.)
+    * gnome-gmail-notifier: changed all g_free statements
+      on strings that can be changed to ggn_free_str.
+
+Sat Jun 23 12:34 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-config.c: completed all interactions between the
+      user-interface and the preferences object and xml file.
+    * ggn-manager.c: implemented base application management
+      using this object, and started to work on the basic
+      application behavior.
+
+Fri Jun 22 14:23 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-config.c: began the basic functions for using the
+      preferences window.
+
+Fri Jun 22 11:45 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-util.c: moved ggn_btostr, ggn_strtob to this file.
+      wrote ggn_pixmap_file and ggn_glade_file functions for
+      a simpler method of generating filename strings.
+    * ggn-about-dialog.c: implemented functions for loading
+      the GgnAboutDialog glade xml files simply, to use the
+      about dialog.
+    * ggn-util.c: implemented ggn_client_execute, which can
+      execute a given web client based on the link style.
+
+Thu Jun 21 21:32 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * gnome-gmail-notifier: massive reorganization of the
+      source tree. moved files in pixmaps/ to data/, moved
+      all package spec files to data/pkg/, moved *.desktop
+      files to data/, and added support for installation of
+      glade xml files from data/.
+
+Thu Jun 21 18:25 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-presence.c: completed the rest of the notification,
+      tray icon, and menu functionality, as well as a callback
+      set for tray icon and menu actions. from the looks of
+      the code now, it seems that the best approach to summing
+      all of these objects is to create a GgnManager object
+      which handles the rest of them.
+
+Thu Jun 21 13:03 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * build files: added libglade support into configure.ac
+      and src/Makefile.am to allow the application to use
+      GladeXML objects.
+    * package files: added libglade as a requirement for
+      the various package managers.
+
+Thu Jun 21 11:38 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-presence.c: defined basic functions for tray icon,
+      notifications, and sound files in the header.
+    * ggn-presence.c: implemented sound playing function.
+
+Wed Jun 20 22:33 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-preferences.c: implemented account manipulation
+      functions. implemented set() functions. functionality
+      is completed.
+    * ggn-presence.c: created presence object for maintaining
+      a presence on the user's desktop with sounds, bubbles,
+      and a tray icon.
+
+Wed Jun 20 17:20 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-preferences.c: implemented safe get() functions for
+      use with the preferences file object, so NULL strings
+      won't become "(null)" when saved to the XML file.
+
+Wed Jun 20 14:50 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-preferences.c: created basic read() and write()
+      functions to load and save the preferences file on
+      the fly. all xml code is backwards compatible with
+      old notifier versions, and the transition is 100%
+      transparent to the user. still need to implement
+      the myriad of get/set functions.
+
+Wed Jun 20 11:40 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-xml-parser.c: functionality is completed.
+    * ggn-atom-feed.c: added functions for looking up
+      inbox and message information. all functionality
+      is completed.
+    * prefs.xml: added extra markup to allow the preferences
+      parser to manage multiple gmail inbox accounts at one
+      time, for first-run special actions, and for proxy
+      server support.
+
+Tue Jun 19 23:21 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * specfile.fc6.in: added libxml2 and libxml2-devel to
+      the list of dependencies.
+    * slack-desc.in: no dependency management in slackware.
+    * control.edgy.in: added libxml2 and libxml2-dev to the
+      list of dependencies.
+    * control.feisty.in: added libxml2 and libxml2-dev to the
+      list of dependencies.
+
+Tue Jun 19 17:53 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * ggn-xml-parser.c: implemented basic XML parsing set of
+      functionality, which is similar to GMarkup, but with
+      extra data, such as a non-conforming XPath system, a
+      hash table for the XML tag attributes, and true GLib
+      signals for the processing callback functions.
+    * ggn-atom-feed.c: linked GgnAtomFeed into the created
+      GgnXmlParser functionality, and everything is still
+      working.
+
+Mon Jun 18 08:32 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * gnome-gmail-notifier: began rewrite of entire codebase.
+      all objects will be wrapped in GObject code to ease
+      many headaches.
+    * ggn-atom-feed.c: implemented basic functionality to
+      download the Gmail ATOM XML feed securely.
+    * ggn-atom-feed.c: implemented multi-threading support.
+    * ggn-atom-feed.c: added proxy server support... NEEDS
+      TESTING!
+
+Sun Apr 29 11:52 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * application.c: fixed the tooltip to update the message
+      count even if the user has recieved new messages the
+      last time.
+
+Fri Apr 20 16:23 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * control.feisty.in: created for feisty ubuntu support.
+    * scripts/package: added target 'feisty'.
+    * Makefile.am: added target 'package-feisty'.
+    * gnome-gmail-notifier: ubuntu 7.04 package support is
+      completed!
+
+Tue Apr 10 13:49 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * gnome-gmail-notifier: added _("") code to prepare for
+      nls support.
+
+Mon Apr 09 18:10 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * specfile.fc6.in: fixed %dist tag typo.
+    * gnome-gmail-notifier: version officially set to 0.8.5.
+
+Mon Apr 09 17:53 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * package: added support for the edgy target.
+    * Makefile.am: added package-edgy target.
+    * gnome-gmail-notifier: version officially set to 0.8.4.
+
+Sat Apr 07 10:56 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * feed-downloader.c: fixed feed_download to clean up all
+      loose ends and connections after downloading the atom
+      feed from google.
+
+Fri Apr 06 12:39 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * package: added support for the fc6 target.
+    * Makefile.am: added package-fc6 target.
+    * gnome-gmail-notifier: version officially set to 0.8.3.
+
+Mon Mar 05 17:28 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * package: fixed fatal flaw that made our app not package
+      anything properly. (slackware packages still work, but
+      not to fullest extent until now.)
+
+Mon Mar 05 16:31 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * package: created script to manage the creation of
+      various os-specific packages. for now, only slack 11.0
+      support exists.
+    * Makefile.am: added package-slack11.0 target.
+    * prefs-window.c: fixed file chooser to open by default
+      into /usr/share/sounds if no file is specified.
+    * gnome-gmail-notifier: version officially set to 0.8.2.
+
+Sun Feb 25 14:32 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * prefs-window.c: added statement to save preferences
+      to the xml file every time the user closed the dialog.
+    * preferences.h: replaced PREFERENCES_DEFAULT with new
+      PREFERENCES_DEFAULT_PRINTF, which is a printf format
+      string that provides a more useful and standard job.
+    * preferences.c: revamped preferences_get_file and
+      preferences_save functions to use new printf format.
+    * slack-desc.in: created this file for purpose of
+      making slackware *.tgz package files later.
+
+Wed Feb 21 18:32 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * prefs-window.c: rewrote the generate function that
+      creates the window, and basically fixed everything
+      and made "version 2.0" of the window.
+    * prefs-window.c: added complete sound file chooser
+      support. i think the next release is ready to go!
+    * *.c, *.h: fixed all warnings generated when source was
+      compiled with -Wall flag, just for extra peace
+      of mind.
+    * gnome-gmail-notifier: version officially set to 0.8.1.
+
+Tue Feb 20 21:04 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * audio.c: added audio playback functionality to app.
+    * preferences.c: fixed first-time settings load typo
+      for "notification" in xml file.
+    * preferences.c: added sound file notification prefs
+      to the xml file handling functions.
+    * application.c: added sound notification functionality
+      to the mail check subroutine.
+    * prefs-window.h: added new, complete list of widgets
+      to the PreferencesWindow structure, according to my
+      throwaway glade template. (maybe i'll actually *use*
+      glade in the future? hah.)
+
+Tue Feb 13 13:35 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * utility.c: added functions to handle and compare the
+      GmailTimestamp structures from atom xml files.
+    * xml-parser.c: parser now takes in message and inbox
+      timestamp values when parsing the atom feed.
+    * application.c: error notification only displays on the
+      first error, not every retry.
+    * application.c: new message notification only displays
+      when the new inbox differs from the last inbox, to cut
+      down on the obtrusive bubbles.
+    * gnome-gmail-notifier: version officially set to 0.8.0.
+
+Thu Feb 08 15:23 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * application.c: remedied new interval buildup bug caused
+      by the 0.7.0 changes. ugh. it's always something.
+    * gnome-gmail-notifier: version officially set to 0.7.1.
+
+Thu Feb 08 13:21 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * xml-parser.c: added caveat "non-fatal" to the ominous
+      xml_parse_error message.
+    * application.c: fixed application_update to call better
+      option application_interval instead of application_runonce
+      when an xml error occurred.
+    * application.c: re-instated startup changes from 0.6.2
+      because they didn't break functionality anymore.
+    * gnome-gmail-notifier: version officially set to 0.7.0.
+
+Wed Feb 07 22:52 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * reverted changes made in 0.6.2!!! they broke things!
+
+Tue Feb 06 22:22 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * application.c: general order of init now gives gtk and
+      libnotify a chance to breath before checking the mail
+      on the start of the program. this ensures the bubble
+      shows up in the right spot, and not randomly on the
+      screen.
+    * gnome-gmail-notifier: version officially set to 0.6.2.
+
+Tue Feb 06 11:24 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * utility.h: used configure-defined PIXMAPS_DIR path to
+      look for images now, instead of hard-coded.
+    * gnome-gmail-notifier: version officially set to 0.6.1.
+
+Sat Jan 27 17:00 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * Makefile.am: *.desktop file is installed into the
+      /usr/share/applications directory now, so it can be
+      run from the main apps menu now.
+
+Sat Jan 27 15:40 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * xml-parser.h: added a timestamp to the GmailMessage
+      structure for later checking of message updates.
+    * notifier.c: fixed notifications to consistently show
+      icons inside the notification bubbles.
+    * gnome-gmail-notifier: version officially set to 0.6.0.
+
+Sat Jan 20 14:53 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * about-dialog.c: fixed corner close button functionality.
+    * prefs-window.c: fixed corner close button functionality.
+    * gnome-gmail-notifier: version officially set to 0.5.6.
+
+Fri Jan 19 18:06 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * about-dialog.c: updated the url and made it clickable.
+      also added a credits box.
+    * gnome-gmail-notifier: version officially set to 0.5.5.
+
+Fri Jan 19 10:33 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * xml-parser.c: added another specific error return for
+      the sometimes-returned xml parse error.
+    * application.c: improved reaction to nonfatal mail check
+      errors in application_update, and checked for xml parse
+      error. project seems to be bug-free.
+    * gnome-gmail-notifier: version officially set to 0.5.4.
+
+Sat Jan 13 17:58 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * application.c: application_update checks for the "bad"
+      utf8 error and re-runs the parse if that's the case.
+    * application.c: application_update re-registers itself
+      with updated interval values. kind of a hack, but at
+      least with smaller values, the change is palatable.
+    * gnome-gmail-notifier: version officially set to 0.5.3.
+
+Sat Jan 13 15:50 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * notifier.c: added extra qualifier to ensure the icon
+      is a GtkStatusIcon object.
+    * notifier.c: changed creation of notification bubble to
+      work properly in ubuntu (libnotify 0.4.2 to 0.4.0).
+    * gnome-gmail-notifier: version officially set to 0.5.2.
+
+Sat Jan 13 14:33 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * utility.c: added g_sync_gui to update the gtk system.
+    * application.c: implemented gui syncs in the update code.
+    * feed-downloader.c: fixed feed_download to use the url
+      string passed to it, instead of the default url string.
+    * gnome-gmail-notifier: version officially set to 0.5.1.
+
+Sat Jan 13 13:42 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * feed-downloader.c: overhauled libcurl http get source
+      with libsoup multithreaded code. libsoup returns true
+      utf8, so there's no interface error with GMarkupParser.
+    * gnome-gmail-notifier: pre-alpha is a wrap, or at least
+      that's probably the case. version officially set to
+      0.5.0.
+
+Tue Jan 09 22:12 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * tray-icon.c: clicking a normal/newmsg icon shows a browser.
+    * utility.c: added the browser execution functionality.
+    * tray-icon.c: added tooltips that update based on status.
+    * gnome-gmail-notifier: all testbeds have been implemented
+      and interlinked with each other by the application layer.
+      if it weren't for the parse error created by the feed
+      interpreter, i would call this project a wrap. dammit.
+
+Tue Jan 09 18:25 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * application.c: implemented tie-ins for app init, run,
+      execute, and exit. added update and reaction code for
+      interval-checking of mail.
+
+Tue Jan 09 16:25 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * notifier.c: added complete testbed functionality.
+    * application.c: added to manage overall application.
+
+Mon Jan 08 16:42 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * application.h: added to provide app-specific info.
+    * about-dialog.c: added complete testbed functionality.
+    * feed-downloader.c: added complete testbed functionality.
+    * preferences.c: added complete testbed functionality,
+      as well as the code required to handle the additional
+      notification options.
+
+Fri Jan 05 18:17 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * prefs-window.c: added complete testbed functionality.
+    * tray-icon.c: added complete testbed functionality.
+    * utility.c: added gdk_pixbuf_new_from_special and
+      gdk_pixbuf_find functionality for pixmap use.
+    * prefs-window.c: added notification checkboxes to the
+      preferences window.
+
+Thu Jan 04 23:02 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * utility.c: added g_string_new_blank_len feature.
+    * xml-parser.c: added complete testbed functionality.
+
+Thu Jan 04 16:29 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * main.h: added outside library includes, as well as a
+      config.h include and headers for the rest of the app.
+
+Wed Jan 03 10:46 2007  Bradley Worley  (geekysuavo@gmail.com)
+
+    * about-dialog.h: added function definitions to header.
+    * feed-downloader.h: added function definitions to header.
+    * notifier.h: added function definitions to header.
+    * preferences.h: added function definitions to header.
+    * prefs-window.h: added function definitions to header.
+    * tray-icon.h: added function definitions to header.
+    * utility.h: added function definitions to header.
+    * xml-parser.h: added function definitions to header.
+
+Wed Dec 27 19:32 2006  Bradley Worley  (geekysuavo@gmail.com)
+
+    * gnome-gmail-notifier: project has officially started!
+      version officially set at 0.4.0.
+
+ChangeLog ends here

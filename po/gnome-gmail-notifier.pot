@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+#
+# Copyright (C) 2010 Bradley A. Worley.
+# This file is distributed under the same
+# license as the gnome-gmail-notifier package.
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-09 10:14-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/ggn-about.xml.in.h:1
+msgid "A Gmail Inbox Monitor for the GNOME2 desktop"
+msgstr ""
+
+#: ../data/ggn-about.xml.in.h:2
+msgid "Copyright &#xA9; 2010 Bradley Worley"
+msgstr ""
+
+#: ../data/ggn-about.xml.in.h:3
+msgid "translator-credits"
+msgstr ""
+
+#: ../data/ggn-edit.xml.in.h:1
+msgid "<b>Composition</b>"
+msgstr ""
+
+#: ../data/ggn-edit.xml.in.h:2
+msgid "<b>Description</b>"
+msgstr ""
+
+#: ../data/ggn-edit.xml.in.h:3
+msgid "<b>Gmail Login</b>"
+msgstr ""
+
+#: ../data/ggn-edit.xml.in.h:4
+msgid "Domain:"
+msgstr ""
+
+#: ../data/ggn-edit.xml.in.h:5
+msgid "Edit Account"
+msgstr ""
+
+#: ../data/ggn-edit.xml.in.h:6
+msgid "Name:"
+msgstr ""
+
+#: ../data/ggn-edit.xml.in.h:7
+msgid "Password:"
+msgstr ""
+
+#: ../data/ggn-edit.xml.in.h:8
+msgid "Use this account to compose messages"
+msgstr ""
+
+#: ../data/ggn-edit.xml.in.h:9
+msgid "Username:"
+msgstr ""
+
+#: ../data/ggn-menu.xml.in.h:1
+msgid "_Check Mail"
+msgstr ""
+
+#: ../data/ggn-menu.xml.in.h:2
+msgid "_Quit"
+msgstr ""
+
+#: ../data/ggn-prefs.xml.in.h:1
+msgid "<b>Audio Notifications</b>"
+msgstr ""
+
+#: ../data/ggn-prefs.xml.in.h:2
+msgid "<b>Gmail Accounts</b>"
+msgstr ""
+
+#: ../data/ggn-prefs.xml.in.h:3
+msgid "<b>Inbox Updates</b>"
+msgstr ""
+
+#: ../data/ggn-prefs.xml.in.h:4
+msgid "<b>Visual Notifications</b>"
+msgstr ""
+
+#: ../data/ggn-prefs.xml.in.h:5
+msgid "Check with Gmail for messages every:"
+msgstr ""
+
+#: ../data/ggn-prefs.xml.in.h:6
+msgid "Display notifications for inbox errors"
+msgstr ""
+
+#: ../data/ggn-prefs.xml.in.h:7
+msgid "Display notifications for new messsages"
+msgstr ""
+
+#: ../data/ggn-prefs.xml.in.h:8
+msgid "Gmail Notifier Preferences"
+msgstr ""
+
+#: ../data/ggn-prefs.xml.in.h:9
+msgid "Play a sound upon receipt of new mail"
+msgstr ""
+
+#: ../data/ggn-prefs.xml.in.h:10
+msgid "Select A Sound File"
+msgstr ""
+
+#.
+#. * define the constant-valued strings to use for notification.
+#.
+#: ../src/ggn-manager.c:51
+msgid "Checking mail..."
+msgstr ""
+
+#: ../src/ggn-manager.c:52
+msgid "No accounts configured"
+msgstr ""
+
+#: ../src/ggn-manager.c:53 ../src/ggn-manager.c:56
+msgid "Unable to check mail"
+msgstr ""
+
+#: ../src/ggn-manager.c:54 ../src/ggn-manager.c:58
+msgid "No new messages"
+msgstr ""
+
+#: ../src/ggn-manager.c:55
+msgid "No accounts are configured"
+msgstr ""
+
+#: ../src/ggn-manager.c:57
+msgid "You have new mail"
+msgstr ""
+
+#: ../src/ggn-manager.c:59
+msgid "Please add one or more accounts using the Preferences window."
+msgstr ""
+
+#. add information to the tooltip.
+#: ../src/ggn-manager.c:197
+#, c-format
+msgid "%d unread for %s"
+msgstr ""
+
+#. use the advanced title gstring.
+#: ../src/ggn-manager.c:238
+#, c-format
+msgid "New mail from %s"
+msgstr ""
+
+#. add the first part of the summary gstring.
+#: ../src/ggn-manager.c:256
+#, c-format
+msgid "There are <b>%d</b> new messages for"
+msgstr ""
+
+#. last.
+#: ../src/ggn-manager.c:281 ../src/ggn-manager.c:321 ../src/ggn-manager.c:428
+msgid "and"
+msgstr ""
+
+#. first.
+#: ../src/ggn-manager.c:316
+msgid "from"
+msgstr ""
+
+#. allocate a new summary gstring.
+#: ../src/ggn-manager.c:408
+msgid "Errors occurred while checking mail for"
+msgstr ""
+
+#: ../src/ggn-manager.c:682
+msgid "unread"
+msgstr ""
+
+#. create the label.
+#: ../src/ggn-manager.c:744
+msgid "Compose New Message"
+msgstr ""
+
+#. set the default account values.
+#: ../src/ggn-prefs-window.c:372
+msgid "New Account"
+msgstr ""
+
+#. singular value.
+#: ../src/ggn-prefs-window.c:538
+msgid "minute"
+msgstr ""
+
+#. plural value 2-9.
+#. plural value 10-60.
+#: ../src/ggn-prefs-window.c:542 ../src/ggn-prefs-window.c:546
+msgid "minutes"
+msgstr ""
+
+#: ../src/ggn-prefs-window.c:850
+msgid "Enabled"
+msgstr ""
+
+#: ../src/ggn-prefs-window.c:856
+msgid "Name"
+msgstr ""
+
+#: ../src/ggn-prefs-window.c:882
+msgid "Wave audio files"
+msgstr ""
