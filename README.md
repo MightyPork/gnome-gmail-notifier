@@ -4,6 +4,8 @@ This is an unofficial fork to make it work on Arch and to add some features I've
 
 Feel free to use it.
 
+**Upstream:** (archived) Google Code project at https://code.google.com/archive/p/gnome-gmail-notifier/
+
 ## What's added
 
 - Left-click on the icon runs `xdg-open "https://mail.google.com"` to open your inbox.
